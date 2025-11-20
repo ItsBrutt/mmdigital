@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMdigital</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="hero-section">
+    <header class="main-header">
+        <div class="logo-container">
+            <span class="logo-mm">MM</span>
+            <div class="logo-text">
+                <span class="logo-main">DIGITAL & WEB</span>
+                <span class="logo-sub">STUDIOS</span>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        
+        <a href="#propuesta" class="btn-cta-header">Solicita tu propuesta</a>
+    </header>
+
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1>Construimos tu transformación digital</h1>
+            <p>Potenciamos la presencia digital de tu negocio con soluciones confiables y a medida.</p>
+            <a href="#transformacion" class="btn-cta-hero">Comienza tu transformación Digital</a>
+        </div>
+        
+        <div class="hero-image">
+            <img src="/img/computer-science.png" alt="Gráfico de transformación digital">
+        </div>
+    </div>
+</section>
+<section class="services-cards-section">
+    <div class="cards-container">
+        <div class="plan-card">
+            <div class="card-icon">
+                <img src="/img/presencia-digital.png" alt="Icono Plan Identidad Digital">
+            </div>
+            <h3>Plan Identidad Digital</h3>
+        </div>
+
+        <div class="plan-card">
+            <div class="card-icon">
+                <img src="/img/pyme.png" alt="Icono Plan Presencia Pyme">
+            </div>
+            <h3>Plan Presencia Pyme</h3>
+        </div>
+
+        <div class="plan-card">
+            <div class="card-icon">
+                <img src="/img/tienda-online.png" alt="Icono Plan Comercio Evolutivo">
+            </div>
+            <h3>Plan Comercio Evolutivo</h3>
+        </div>
+    </div>
+</section>
+
+<section class="unique-value-section">
+    <div class="unique-value-content">
+        <h2>El Santuario Digital: La base de tu Identidad</h2>
+        <p>
+            Cada proyecto de MM Digital se construye sobre una Identidad Digital sólida, que es el plano de lo que será tu Santuario Digital.
+        </p>
+        <p>
+            Esto implica definir tu visión, misión y valores  para que tu presencia online esté alineada con tu propósito. No te daremos una simple web; te daremos un espacio de conexión que transforma.
+        </p>
+        <ul>
+            <li>Diagnóstico del cliente (propósito y público meta).</li>
+            <li>Estrategia de presencia digital y narrativa visual.</li>
+            <li>Recomendaciones técnicas y de mantenimiento sostenible.<li>
+        </ul>
+    </div>
+</section>
+<section class="contacto-section">
+    <div class="contacto-container">
+        <div class="contacto-header">
+            <h1>Empecemos tu proyecto</h1>
+            <p>Completa el formulario o envíanos un correo electrónico y nos pondremos en contacto contigo.</p>
+        </div>
+
+        <form class="contacto-form">
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+
+            <input type="email" id="correo" name="correo" placeholder="Correo electrónico" required>
+
+            <input type="tel" id="telefono" name="telefono" placeholder="Teléfono">
+
+            <textarea id="mensaje" name="mensaje" placeholder="Mensaje" rows="4"></textarea>
+
+            <button type="submit" class="btn-enviar">Enviar</button>
+        </form>
+    </div>
+</section>
+<footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-col footer-info">
+            <div class="logo-container">
+                <span class="logo-mm">MM</span>
+                <div class="logo-text">
+                    <span class="logo-main">DIGITAL & WEB</span>
+                    <span class="logo-sub">STUDIOS</span>
+                </div>
+            </div>
+            <p class="company-tagline">
+               El puente que conecta lo tradicional con la innovación digital.
+            </p>
+        </div>
+
+        <div class="footer-col footer-links">
+            <h3>Navegación</h3>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#portafolio">Portafolio</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col footer-services">
+            <h3>Nuestros Planes</h3>
+            <ul>
+                <li><a href="#" data-plan="PlanIdentidadDigital">Plan Identidad Digital</a></li>
+                <li><a href="#" data-plan="PlanComercioEvolutivo">Plan Comercio Evolutivo</a></li>
+                <li><a href="#" data-plan="PlanFormacionDigital">Plan Formación Digital</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col footer-contact">
+            <h3>Contacto</h3>
+            <p>Santiago, Chile</p>
+            <p>Email: contacto@mmdigital.cl</p> 
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> MM Digital & Web Studios. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<script>
+    // Script para actualizar automáticamente el año del copyright
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

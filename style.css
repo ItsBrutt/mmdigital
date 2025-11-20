@@ -1,0 +1,731 @@
+:root {
+    /* Tipografía */
+    --fuente-heading: 'Poppins', sans-serif;
+    --fuente-parrafo: 'Lato', sans-serif;
+
+    /* Colores */
+    --primario: #2A3E6B; /* Azul Oscuro Base */
+    --primario-oscuro: #0E1E40; /* Azul Oscuro Profundo (Fondo del formulario) */
+    --parrafo: #D1D9EB; /* Gris Claro / Azul muy claro (Para texto) */
+    --secundario: #BED3FF; /* Azul Claro (No se usa directamente aquí) */
+    --secundario-oscuro: #516694; /* Gris Azulado Oscuro */
+
+    /* Color del botón Enviar (Ajuste para verde) */
+    --boton-verde: #5cb85c; 
+    --boton-hover: #4cae4c;
+}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* Establece una fuente de respaldo para el cuerpo */
+            font-family: var(--fuente-parrafo); 
+        }
+
+        :root {
+            /* Tipografía */
+            --fuente-heading: 'Poppins', sans-serif;
+            --fuente-parrafo: 'Lato', sans-serif;
+
+            /* Colores */
+            --primario: #2A3E6B;
+            --primario-oscuro: #0E1E40;
+            --parrafo: #D1D9EB;
+            --secundario: #BED3FF; 
+            --secundario-oscuro: #516694; 
+
+            /* Color del botón Enviar */
+            --boton-verde: #5cb85c; 
+            --boton-hover: #4cae4c;
+        }
+
+        .contacto-section {
+            background-color: var(--secundario-oscuro);
+            padding: 40px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; 
+        }
+
+        .contacto-container {
+            background-color: var(--primario-oscuro);
+            color: white;
+            padding: 60px 40px;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .contacto-header h1 {
+            font-family: var(--fuente-heading);
+            font-size: 2.5rem;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .contacto-header p {
+            font-family: var(--fuente-parrafo);
+            color: var(--parrafo);
+            font-size: 1rem;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .contacto-form input,
+        .contacto-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: var(--primario);
+            color: white;
+            font-family: var(--fuente-parrafo);
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        .contacto-form input::placeholder,
+        .contacto-form textarea::placeholder {
+            color: var(--parrafo);
+            opacity: 0.7;
+        }
+
+        .contacto-form textarea {
+            resize: vertical;
+        }
+
+        .btn-enviar {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 6px;
+            background-color: #5CB85C;
+            color: white;
+            font-family: var(--fuente-heading);
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn-enviar:hover {
+            background-color: #4CAE4C;
+        }
+/* ---------------------------------------------------- */
+/* 2.1. Estilos Generales y Responsive para la Sección Hero */
+
+/* Media Query para Tabletas y Móviles grandes (Max-width: 992px) */
+@media (max-width: 992px) {
+    .main-header {
+        /* Permite que el contenido se envuelva si no cabe */
+        flex-wrap: wrap; 
+        justify-content: center; /* Centra el logo si no hay menú */
+    }
+
+    /* Ocultar la navegación y el botón CTA del header en pantallas pequeñas */
+    .main-nav,
+    .btn-cta-header {
+        display: none; 
+    }
+
+    .logo-container {
+        /* Centrar el logo cuando el menú desaparece */
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    /* Alinear el texto de la Hero Section al centro */
+    .hero-text {
+        text-align: center;
+        max-width: 100%; /* Ocupa todo el ancho */
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem; /* Reducir tamaño de título */
+    }
+    
+    .hero-content {
+        flex-direction: column; /* Apilar Imagen y Texto */
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+
+    .hero-image {
+        width: 80%; /* Hacer la imagen más ancha en móvil */
+        order: -1; /* Mueve la imagen arriba del texto en móvil */
+        margin-bottom: 30px;
+    }
+
+    .btn-cta-hero {
+        /* Asegurar que el botón CTA sea full width en móvil */
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ---------------------------------------------------- */
+/* 2.2. Estilos del Header y Navegación */
+/* ---------------------------------------------------- */
+
+.hero-section {
+    /* Fondo principal de toda la sección inicial */
+    background-color: var(--primario-oscuro); 
+    padding: 20px 5%; /* Padding lateral */
+}
+
+.main-header {
+    /* Contenedor Flex para la barra superior (Logo | Menú | Botón) */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0; 
+    max-width: 1200px; 
+    margin: 0 auto;
+}
+
+/* Estilos del Logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.logo-mm {
+    /* El "MM" estilizado */
+    font-family: var(--fuente-heading); 
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--secundario); /* El azul más brillante */
+    margin-right: 5px;
+}
+
+.logo-text {
+    /* "DIGITAL & WEB STUDIOS" */
+    display: flex;
+    flex-direction: column;
+    font-family: var(--fuente-parrafo);
+    font-size: 0.8rem;
+    line-height: 1.1;
+    font-weight: 600;
+}
+
+.logo-sub {
+    font-size: 0.7rem;
+    font-weight: 400;
+}
+
+/* Estilos del Menú */
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    margin-right: 20px;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: var(--parrafo); /* Color gris azulado para los enlaces */
+    font-family: var(--fuente-parrafo);
+    font-weight: 500;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: white;
+}
+
+/* Estilos del Botón CTA en el Header ("Solicita tu propuesta") */
+.btn-cta-header {
+    background-color: var(--boton-verde);
+    color: white;
+    text-decoration: none;
+    font-family: var(--fuente-parrafo);
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-cta-header:hover {
+    background-color: var(--boton-hover);
+}
+
+
+/* ---------------------------------------------------- */
+/* 2.3. Estilos del Contenido Hero (Texto y Gráfico) */
+/* ---------------------------------------------------- */
+
+.hero-content {
+    /* Contenedor Flex para el Contenido (Texto | Imagen) */
+    max-width: 1200px;
+    margin: 60px auto; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 60px; /* Espacio al final de la sección */
+}
+
+.hero-text {
+    max-width: 50%; /* Ocupa la mitad del espacio */
+}
+
+.hero-text h1 {
+    font-family: var(--fuente-heading);
+    font-size: 3rem;
+    color: white;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-family: var(--fuente-parrafo);
+    font-size: 1.1rem;
+    color: var(--parrafo);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Estilos del Botón CTA en el Hero ("Comienza tu transformación Digital") */
+.btn-cta-hero {
+    background-color: var(--boton-verde);
+    color: white;
+    text-decoration: none;
+    font-family: var(--fuente-parrafo);
+    font-weight: 600;
+    padding: 15px 30px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    display: inline-block; /* Necesario para aplicar padding */
+}
+
+.btn-cta-hero:hover {
+    background-color: var(--boton-hover);
+}
+
+.hero-image {
+    width: 40%;
+    /* Estilos del Placeholder, debes reemplazar por tu imagen real */
+    min-height: 300px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Puedes reemplazar el placeholder en CSS si es un SVG o usar la etiqueta <img> en HTML */
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    /* Estilos para el efecto degradado de la imagen del gráfico si fuera un PNG/JPG */
+    filter: drop-shadow(0 0 20px rgba(78, 114, 255, 0.5));
+}
+/* ---------------------------------------------------- */
+/* 2.1. Sección de Servicios (Las 3 Tarjetas) */
+/* ---------------------------------------------------- */
+
+/* --- Servicios (Las 3 Tarjetas) - Código Revisado --- */
+
+.services-cards-section {
+    /* **CAMBIO CLAVE:** El fondo de la sección ahora es BLANCO para crear separación */
+    background-color: var(--); 
+    padding: 80px 5%; /* Añadimos padding superior e inferior para el espaciado */
+    display: flex;
+    justify-content: center;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    
+    /* **CAMBIO CLAVE:** ELIMINAMOS EL MARGEN NEGATIVO */
+    margin-top: 0; /* o margin-top: 40px; si quieres un espacio extra */
+    
+    max-width: 1200px;
+    width: 100%;
+}
+
+.plan-card {
+    /* El fondo de las tarjetas ya era blanco, se mantiene */
+    background-color: white;
+    padding: 30px 20px;
+    border-radius: 8px;
+    text-align: center;
+    /* Mantenemos la sombra para destacar sobre el fondo blanco */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- Responsive para Servicios --- */
+@media (max-width: 600px) {
+    .cards-container {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+        /* Quitamos el margin-top negativo que se había usado en la versión anterior */
+        margin-top: 0; 
+    }
+}
+
+.plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 15px;
+}
+
+.card-icon img {
+    width: 100%;
+    height: 100%;
+    /* Estilos para que los iconos se vean como en el diseño (normalmente se haría con SVG o fuentes de iconos) */
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.1)); 
+}
+
+.plan-card h3 {
+    font-family: var(--fuente-heading);
+    color: var(--primario-oscuro);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* ---------------------------------------------------- */
+/* 2.2. Sección de Valor Único (Identidad Digital) */
+/* ---------------------------------------------------- */
+
+.unique-value-section {
+    /* Fondo azul oscuro, pero más claro que el Hero (ej. Primario) */
+    background-color: var(--primario); 
+    padding: 80px 5%;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.unique-value-content {
+    max-width: 900px;
+    text-align: center;
+}
+
+.unique-value-content h2 {
+    font-family: var(--fuente-heading);
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.unique-value-content p {
+    font-family: var(--fuente-parrafo);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: var(--parrafo);
+}
+
+.unique-value-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 30px auto 0;
+    max-width: 600px;
+    text-align: left;
+}
+
+.unique-value-content ul li {
+    font-family: var(--fuente-parrafo);
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="%23BED3FF" d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>') no-repeat left center;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+/* ---------------------------------------------------- */
+/* 2.3. Media Queries Responsive */
+/* ---------------------------------------------------- */
+
+@media (max-width: 992px) {
+    .cards-container {
+        /* Cambiar a 2 columnas para tabletas */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cards-container {
+        /* Cambiar a 1 columna para móviles */
+        grid-template-columns: 1fr; 
+        gap: 15px;
+        margin-top: -50px;
+    }
+    
+    .services-cards-section {
+        padding-bottom: 40px;
+    }
+    
+    .unique-value-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .unique-value-content ul {
+        padding: 0 10px;
+    }
+}
+/* ---------------------------------------------------- */
+/* 3.2. Estilos Globales y de Componentes */
+/* ---------------------------------------------------- */
+
+/* --- Contacto (Formulario) - Código Revisado para fondo externo --- */
+
+.contacto-section {
+    /* **FONDO EXTERNO:** Usamos el gris azulado de tu diseño (la parte más clara) */
+    background-color: var(--secundario-oscuro); /* #516694 */
+    padding: 40px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+}
+
+/* El .contacto-container (el formulario en sí) mantiene el fondo: --primario-oscuro */
+.contacto-container {
+    background-color: var(--primario-oscuro); /* #0E1E40 */
+    /* ... resto de estilos ... */
+}
+
+/* ---------------------------------------------------- */
+/* 3.3. Estilos de Título y Párrafo */
+/* ---------------------------------------------------- */
+
+.contacto-header h1 {
+    font-family: var(--fuente-heading);
+    font-size: 2.5rem;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.contacto-header p {
+    font-family: var(--fuente-parrafo);
+    color: var(--parrafo);
+    font-size: 1rem;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* ---------------------------------------------------- */
+/* 3.4. Estilos del Formulario y Campos */
+/* ---------------------------------------------------- */
+
+.contacto-form input,
+.contacto-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--primario); /* Fondo de campo ligeramente más claro que el fondo del container */
+    color: white; /* Color del texto que se escribe */
+    font-family: var(--fuente-parrafo);
+    font-size: 1rem;
+    box-sizing: border-box; /* Incluye padding en el ancho */
+}
+
+.contacto-form input::placeholder,
+.contacto-form textarea::placeholder {
+    /* Estilo del texto "Nombre", "Mensaje", etc. */
+    color: var(--parrafo);
+    opacity: 0.7;
+}
+
+.contacto-form textarea {
+    resize: vertical; /* Permite al usuario solo cambiar la altura */
+}
+
+/* ---------------------------------------------------- */
+/* 3.5. Estilos del Botón Enviar */
+/* ---------------------------------------------------- */
+
+.btn-enviar {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 6px;
+    background-color: #5CB85C; /* El color verde del diseño */
+    color: white;
+    font-family: var(--fuente-heading);
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-enviar:hover {
+    background-color: #4CAE4C; /* Un verde ligeramente más oscuro al pasar el ratón */
+}
+
+
+/* Media Query para Móviles Pequeños (Max-width: 600px) */
+@media (max-width: 600px) {
+    .hero-text h1 {
+        font-size: 2rem; /* Reducir aún más el título */
+    }
+    
+    .hero-section {
+        padding: 15px 5%;
+    }
+    
+    .hero-image {
+        width: 100%; /* Ocupa todo el ancho */
+    }
+}
+/* ---------------------------------------------------- */
+/* 2.1. Estilos del Footer */
+/* ---------------------------------------------------- */
+
+.main-footer {
+    background-color: var(--primario-oscuro); /* #0E1E40 */
+    color: var(--parrafo); /* #D1D9EB (Gris Claro para texto) */
+    padding: 60px 5% 20px;
+    font-family: var(--fuente-parrafo);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-col {
+    flex: 1; /* Distribuye el espacio entre columnas */
+    min-width: 150px;
+}
+
+/* Estilos para Títulos de Columna */
+.footer-col h3 {
+    font-family: var(--fuente-heading);
+    font-size: 1.1rem;
+    color: white;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Estilos para Enlaces y Listas */
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li a,
+.footer-col p {
+    color: var(--parrafo);
+    text-decoration: none;
+    line-height: 1.8;
+    transition: color 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.footer-col ul li a:hover {
+    color: var(--secundario); /* Color de realce al pasar el mouse */
+}
+
+/* Estilos específicos para la Columna de Info/Logo */
+.footer-info .company-tagline {
+    margin-top: 15px;
+}
+
+/* Estilos de la barra inferior (Copyright) */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--secundario-oscuro);
+}
+
+/* ---------------------------------------------------- */
+/* 2.2. Media Queries Responsive */
+/* ---------------------------------------------------- */
+
+@media (max-width: 768px) {
+    .footer-container {
+        /* Apilar en dos columnas para tabletas */
+        flex-wrap: wrap; 
+        justify-content: flex-start;
+    }
+
+    .footer-col {
+        min-width: 45%; /* Dos columnas por fila */
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-container {
+        /* Apilar en una sola columna para móviles */
+        flex-direction: column;
+    }
+
+    .footer-col {
+        min-width: 100%;
+        text-align: center;
+    }
+    
+    .footer-col h3 {
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .footer-info {
+        /* Centrar el logo y el tagline */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+/* --- Estilos Responsive: Aplicados a la sección de Contacto --- */
+
+/* Media Query para Tabletas y Móviles grandes (Max-width: 768px) */
+@media (max-width: 768px) {
+    .contacto-section {
+        padding: 20px; /* Reducir el padding externo */
+        min-height: auto; /* Eliminar la altura mínima en móvil */
+    }
+
+    .contacto-container {
+        padding: 30px 20px; /* Reducir el padding interno */
+        max-width: 100%; /* Permitir que ocupe todo el ancho disponible */
+    }
+    
+    .contacto-header h1 {
+        font-size: 2rem; /* Reducir el título */
+        text-align: center;
+    }
+
+    .contacto-header p {
+        font-size: 0.9rem;
+        text-align: center;
+    }
+}
+
+/* Media Query para Móviles Pequeños (Max-width: 480px) */
+@media (max-width: 480px) {
+    .contacto-container {
+        padding: 20px 15px; /* Más reducción de padding */
+    }
+    
+    .contacto-header h1 {
+        font-size: 1.8rem;
+    }
+}
