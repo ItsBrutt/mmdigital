@@ -25,99 +25,6 @@
             font-family: var(--fuente-parrafo); 
         }
 
-        :root {
-            /* Tipografía */
-            --fuente-heading: 'Poppins', sans-serif;
-            --fuente-parrafo: 'Lato', sans-serif;
-
-            /* Colores */
-            --primario: #2A3E6B;
-            --primario-oscuro: #0E1E40;
-            --parrafo: #D1D9EB;
-            --secundario: #BED3FF; 
-            --secundario-oscuro: #516694; 
-
-            /* Color del botón Enviar */
-            --boton-verde: #5cb85c; 
-            --boton-hover: #4cae4c;
-        }
-
-        .contacto-section {
-            background-color: var(--secundario-oscuro);
-            padding: 40px; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh; 
-        }
-
-        .contacto-container {
-            background-color: var(--primario-oscuro);
-            color: white;
-            padding: 60px 40px;
-            width: 100%;
-            max-width: 500px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        .contacto-header h1 {
-            font-family: var(--fuente-heading);
-            font-size: 2.5rem;
-            line-height: 1.1;
-            margin-bottom: 10px;
-        }
-
-        .contacto-header p {
-            font-family: var(--fuente-parrafo);
-            color: var(--parrafo);
-            font-size: 1rem;
-            margin-bottom: 30px;
-            line-height: 1.5;
-        }
-
-        .contacto-form input,
-        .contacto-form textarea {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
-            border: none;
-            border-radius: 4px;
-            background-color: var(--primario);
-            color: white;
-            font-family: var(--fuente-parrafo);
-            font-size: 1rem;
-            box-sizing: border-box;
-        }
-
-        .contacto-form input::placeholder,
-        .contacto-form textarea::placeholder {
-            color: var(--parrafo);
-            opacity: 0.7;
-        }
-
-        .contacto-form textarea {
-            resize: vertical;
-        }
-
-        .btn-enviar {
-            width: 100%;
-            padding: 15px;
-            border: none;
-            border-radius: 6px;
-            background-color: #5CB85C;
-            color: white;
-            font-family: var(--fuente-heading);
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-top: 10px;
-        }
-
-        .btn-enviar:hover {
-            background-color: #4CAE4C;
-        }
 /* ---------------------------------------------------- */
 /* 2.1. Estilos Generales y Responsive para la Sección Hero */
 
@@ -524,54 +431,82 @@
 /* 3.4. Estilos del Formulario y Campos */
 /* ---------------------------------------------------- */
 
+.contacto-section {
+            background-color: var(--secundario-oscuro);
+            padding: 40px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; 
+        }
+
+.contacto-container {
+            background-color: var(--primario-oscuro);
+            color: white;
+            padding: 60px 40px;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+.contacto-header h1 {
+            font-family: var(--fuente-heading);
+            font-size: 2.5rem;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+.contacto-header p {
+            font-family: var(--fuente-parrafo);
+            color: var(--parrafo);
+            font-size: 1rem;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
 .contacto-form input,
 .contacto-form textarea {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 20px;
-    border: none;
-    border-radius: 4px;
-    background-color: var(--primario); /* Fondo de campo ligeramente más claro que el fondo del container */
-    color: white; /* Color del texto que se escribe */
-    font-family: var(--fuente-parrafo);
-    font-size: 1rem;
-    box-sizing: border-box; /* Incluye padding en el ancho */
-}
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: var(--primario);
+            color: white;
+            font-family: var(--fuente-parrafo);
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
 
 .contacto-form input::placeholder,
 .contacto-form textarea::placeholder {
-    /* Estilo del texto "Nombre", "Mensaje", etc. */
-    color: var(--parrafo);
-    opacity: 0.7;
-}
+            color: var(--parrafo);
+            opacity: 0.7;
+        }
 
 .contacto-form textarea {
-    resize: vertical; /* Permite al usuario solo cambiar la altura */
-}
-
-/* ---------------------------------------------------- */
-/* 3.5. Estilos del Botón Enviar */
-/* ---------------------------------------------------- */
+            resize: vertical;
+        }
 
 .btn-enviar {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 6px;
-    background-color: #5CB85C; /* El color verde del diseño */
-    color: white;
-    font-family: var(--fuente-heading);
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
-}
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 6px;
+            background-color: #5CB85C;
+            color: white;
+            font-family: var(--fuente-heading);
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
 
-.btn-enviar:hover {
-    background-color: #4CAE4C; /* Un verde ligeramente más oscuro al pasar el ratón */
-}
-
+        .btn-enviar:hover {
+            background-color: #4CAE4C;
+        }
 
 /* Media Query para Móviles Pequeños (Max-width: 600px) */
 @media (max-width: 600px) {
