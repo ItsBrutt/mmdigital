@@ -82,10 +82,23 @@
 /* 2.2. Estilos del Header y Navegación */
 /* ---------------------------------------------------- */
 
+/* ---------------------------------------------------- */
+/* MODIFICACIÓN EN .hero-section */
+/* ---------------------------------------------------- */
+
 .hero-section {
-    /* Fondo principal de toda la sección inicial */
-    background-color: var(--primario-oscuro); 
-    padding: 20px 5%; /* Padding lateral */
+    /* **ELIMINA O COMENTA ESTA LÍNEA:** background-color: var(--primario-oscuro); */
+    
+    /* APLICA ESTE DEGRADADO LINEAL: De arriba a abajo, de oscuro a primario */
+    background: linear-gradient(
+        to bottom, 
+        var(--primario-oscuro) 0%,  /* Inicia con el color más oscuro (#0E1E40) */
+        var(--primario) 100%       /* Termina con el color primario (#2A3E6B) */
+    );
+    
+    /* Asegúrate de mantener el resto de las propiedades */
+    padding: 20px 5%;
+    /* ... otras propiedades ... */
 }
 
 .main-header {
@@ -236,10 +249,18 @@
 }
 
 /* --- Servicios (Las 3 Tarjetas) - Código Revisado --- */
+/* ---------------------------------------------------- */
+/* MODIFICACIÓN EN .services-cards-section */
+/* ---------------------------------------------------- */
+
 .services-cards-section {
-    /* **CAMBIO CLAVE:** El fondo de la sección ahora es BLANCO para crear separación */
-    background-color: var(--primario-oscuro); 
-    padding: 80px 5%; /* Añadimos padding superior e inferior para el espaciado */
+    /* Fondo Azul Oscuro Profundo para hacer resaltar las tarjetas claras */
+    background: linear-gradient(
+        to top right, 
+        var(--primario) 0%,           /* Azul Primario (#2A3E6B) */
+        var(--primario-oscuro) 100%    /* Azul Oscuro (#0E1E40) */
+    );
+    padding: 80px 5%; /* Mantenemos el padding */
     display: flex;
     justify-content: center;
 }
@@ -256,15 +277,26 @@
     width: 100%;
 }
 
+/* ---------------------------------------------------- */
+/* MODIFICACIÓN EN .plan-card */
+/* ---------------------------------------------------- */
+
 .plan-card {
-    /* El fondo de las tarjetas ya era blanco, se mantiene */
-    background-color: white;
+    /* Fondo gris azulado claro para la tarjeta */
+    background-color: #E5E9F0; 
     padding: 30px 20px;
     border-radius: 8px;
     text-align: center;
-    /* Mantenemos la sombra para destacar sobre el fondo blanco */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Sombra más suave para que no compita con el fondo oscuro */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    /* Mantenemos la transición del hover para UX */
+}
+
+.plan-card h3 {
+    /* El texto del título es negro/azul oscuro para contrastar con el fondo claro */
+    color: var(--primario-oscuro); 
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
 /* --- Responsive para Servicios --- */
@@ -282,34 +314,50 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
+/* ---------------------------------------------------- */
+/* MODIFICACIÓN EN .card-icon (Prepara el contenedor para imágenes coloridas) */
+/* ---------------------------------------------------- */
+
 .card-icon {
-    width: 60px;
-    height: 60px;
+    width: 80px; /* Aumentamos el tamaño del contenedor para los iconos detallados */
+    height: 80px;
     margin: 0 auto 15px;
+    /* Los iconos coloridos NO deben tener filtros */
+    filter: none; 
+}
+
+.card-icon svg {
+    /* Si estás usando SVGs, asegúrate de que el stroke/fill se defina DENTRO del SVG,
+       o remueve las propiedades que fuerzan el color azul claro. */
+    stroke: none;
+    color: none;
+    filter: none;
+    /* Elimina aquí las propiedades como stroke-width, stroke-linecap, etc. */
 }
 
 .card-icon img {
+    /* Aseguramos que la imagen ocupe todo el espacio del contenedor de 80px */
     width: 100%;
     height: 100%;
-    /* Estilos para que los iconos se vean como en el diseño (normalmente se haría con SVG o fuentes de iconos) */
-    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.1)); 
-}
-
-.plan-card h3 {
-    font-family: var(--fuente-heading);
-    color: var(--primario-oscuro);
-    font-size: 1.2rem;
-    font-weight: 600;
+    object-fit: contain;
 }
 
 /* ---------------------------------------------------- */
-/* 2.2. Sección de Valor Único (Identidad Digital) */
+/* SECCIÓN: EL SANTUARIO DIGITAL (VALOR ÚNICO) */
 /* ---------------------------------------------------- */
 
 .unique-value-section {
-    /* Fondo azul oscuro, pero más claro que el Hero (ej. Primario) */
-    background-color: var(--primario); 
-    padding: 80px 5%;
+    /* **ELIMINA O COMENTA ESTA LÍNEA:** background-color: var(--primario); */
+    
+    /* Degradado sutil de izquierda a derecha (L-R) */
+    background: linear-gradient(
+        to right, 
+        var(--primario) 0%,            /* Azul Primario (#2A3E6B) */
+        var(--primario-oscuro) 100%     /* Azul Oscuro (#0E1E40) */
+    );
+
+    /* El resto de las propiedades se mantienen... */
+    padding: 100px 5%;
     color: white;
     display: flex;
     justify-content: center;
@@ -318,38 +366,90 @@
 .unique-value-content {
     max-width: 900px;
     text-align: center;
+    /* Aplicar un borde sutil para que parezca una tarjeta grande */
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2); /* Sombra interna sutil */
 }
+
+/* ---------------------------------------------------- */
+/* Títulos y Párrafos */
+/* ---------------------------------------------------- */
 
 .unique-value-content h2 {
     font-family: var(--fuente-heading);
-    font-size: 2.2rem;
-    margin-bottom: 20px;
+    font-size: 2.8rem; /* Hacer el título más grande e imponente */
+    line-height: 1.2;
+    margin-bottom: 25px;
+    color: white; /* Blanco puro para máxima autoridad */
 }
 
 .unique-value-content p {
     font-family: var(--fuente-parrafo);
-    font-size: 1.05rem;
-    line-height: 1.7;
+    font-size: 1.15rem; /* Párrafo más grande y legible */
+    line-height: 1.8;
     margin-bottom: 20px;
-    color: var(--parrafo);
+    color: var(--parrafo); /* D1D9EB (Gris azulado claro) */
 }
+
+/* ---------------------------------------------------- */
+/* Lista de Propuestas de Valor (Checkmarks) */
+/* ---------------------------------------------------- */
 
 .unique-value-content ul {
     list-style: none;
     padding: 0;
-    margin: 30px auto 0;
-    max-width: 600px;
+    margin: 40px auto 0;
+    max-width: 700px; /* Limitar el ancho de la lista */
     text-align: left;
+    display: inline-block; /* Permite centrar el bloque de la lista */
 }
 
 .unique-value-content ul li {
     font-family: var(--fuente-parrafo);
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="%23BED3FF" d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>') no-repeat left center;
-    padding-left: 25px;
-    margin-bottom: 10px;
+    font-size: 1.1rem;
+    padding-left: 35px; /* Más espacio para el ícono */
+    margin-bottom: 18px; /* Más espacio entre ítems */
     color: white;
+    font-weight: 500;
+    line-height: 1.4;
+    
+    /* Usar un checkmark SVG más grande y en el color de acento (secundario) */
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="%23BED3FF" d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>') no-repeat left 3px;
+    background-size: 24px;
 }
 
+/* ---------------------------------------------------- */
+/* AJUSTES RESPONSIVE (Móvil) */
+/* ---------------------------------------------------- */
+
+@media (max-width: 600px) {
+    .unique-value-section {
+        padding: 60px 5%;
+    }
+    
+    .unique-value-content {
+        padding: 30px 15px;
+    }
+
+    .unique-value-content h2 {
+        font-size: 2rem;
+    }
+    
+    .unique-value-content p {
+        font-size: 1rem;
+    }
+
+    .unique-value-content ul {
+        margin-top: 20px;
+    }
+    
+    .unique-value-content ul li {
+        font-size: 0.95rem;
+        padding-left: 30px;
+    }
+}
 /* ---------------------------------------------------- */
 /* 2.3. Media Queries Responsive */
 /* ---------------------------------------------------- */
@@ -388,14 +488,26 @@
 
 /* --- Contacto (Formulario) - Código Revisado para fondo externo --- */
 
+/* ---------------------------------------------------- */
+/* MODIFICACIÓN EN .contacto-section (Fondo Exterior) */
+/* ---------------------------------------------------- */
+
 .contacto-section {
-    /* **FONDO EXTERNO:** Usamos el gris azulado de tu diseño (la parte más clara) */
-    background-color: var(--secundario-oscuro); /* #516694 */
+    /* **ELIMINA O COMENTA ESTA LÍNEA:** background-color: var(--secundario-oscuro); */
+    
+    /* Degradado diagonal (a la esquina superior derecha) para un look más dinámico */
+    background: linear-gradient(
+        to top right, 
+        var(--primario) 0%,           /* Azul Primario (#2A3E6B) */
+        var(--primario-oscuro) 100%    /* Azul Oscuro (#0E1E40) */
+    );
+    
+    /* El resto de las propiedades se mantienen... */
     padding: 40px; 
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; 
+    min-height: 100vh;
 }
 
 /* El .contacto-container (el formulario en sí) mantiene el fondo: --primario-oscuro */
