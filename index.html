@@ -41,23 +41,23 @@
         </div>
     </div>
 </section>
-<section class="services-cards-section">
+<section class="services-cards-section" id="servicios">
     <div class="cards-container">
-        <div class="plan-card">
+        <div class="plan-card" data-plan="PlanIdentidadDigital">
             <div class="card-icon">
                 <img src="/img/presencia-digital.png" alt="Icono Plan Identidad Digital">
             </div>
             <h3>Plan Identidad Digital</h3>
         </div>
 
-        <div class="plan-card">
+        <div class="plan-card" data-plan="PlanPresenciaPyme">
             <div class="card-icon">
                 <img src="/img/pyme.png" alt="Icono Plan Presencia Pyme">
             </div>
             <h3>Plan Presencia Pyme</h3>
         </div>
 
-        <div class="plan-card">
+        <div class="plan-card" data-plan="PlanComercioEvolutivo">
             <div class="card-icon">
                 <img src="/img/tienda-online.png" alt="Icono Plan Comercio Evolutivo">
             </div>
@@ -82,7 +82,7 @@
         </ul>
     </div>
 </section>
-<section class="contacto-section">
+<section class="contacto-section" id="contacto">
     <div class="contacto-container">
         <div class="contacto-header">
             <h1>Empecemos tu proyecto</h1>
@@ -147,10 +147,29 @@
         <p>&copy; <span id="current-year"></span> MM Digital & Web Studios. Todos los derechos reservados.</p>
     </div>
 </footer>
+<div id="plan-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2 id="modal-title"></h2>
+        <p class="modal-tagline" id="modal-tagline"></p>
+        
+        <div class="modal-section benefits-section">
+            <h3>Beneficios Clave del Plan</h3>
+            <ul id="modal-includes"></ul>
+        </div>
+        
+        <div class="modal-section identity-section">
+            <h3>Nuestra Firma: La Identidad Digital</h3>
+            <p><strong>Cada proyecto de MM Digital se construye sobre la creación del "Plano" de tu Santuario Digital, garantizando:</strong></p>
+            <ul id="modal-identity-includes"></ul>
+        </div>
 
-<script>
-    // Script para actualizar automáticamente el año del copyright
-    document.getElementById('current-year').textContent = new Date().getFullYear();
-</script>
+        <div class="modal-section modal-footer">
+            <div id="modal-value"></div>
+            <a href="#contacto" class="btn-modal-cta">Solicitar Propuesta</a>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
