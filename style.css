@@ -779,11 +779,53 @@
         text-align: center;
     }
 }
-/* ---------------------------------------------------- */
-/* 2.2. Media Queries Responsive */
-/* ---------------------------------------------------- */
+/* ========================================================================= */
+/* 📱 MEDIA QUERIES RESPONSIVE */
+/* ========================================================================= */
 
-@media (max-width: 768px) {
+
+/* ---------------------------------------------------- */
+/* 1. TABLETAS Y PANTALLAS GRANDES (Max-width: 992px) */
+/* ---------------------------------------------------- */
+@media (max-width: 992px) {
+    /* --- Header / Hero --- */
+    .main-nav,
+    .btn-cta-header {
+        /* Ocultar menú de navegación en línea para dar paso al menú hamburguesa (se asume implementación JS/HTML) */
+        display: none; 
+    }
+    .main-header {
+        /* Centrar el logo cuando el menú desaparece */
+        justify-content: center;
+    }
+    
+    .hero-content {
+        /* Apilar Imagen y Texto */
+        flex-direction: column; 
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+    
+    .hero-text {
+        max-width: 90%; 
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .hero-image {
+        width: 60%;
+        order: -1; /* Mover la imagen arriba del texto */
+        margin-bottom: 30px;
+    }
+
+    /* --- Servicios (Tarjetas) --- */
+    .cards-container {
+        /* Cambiar a 2 columnas para tabletas */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px;
+    }
+    
+    /* --- Footer --- */
     .footer-container {
         /* Apilar en dos columnas para tabletas */
         flex-wrap: wrap; 
@@ -791,12 +833,73 @@
     }
 
     .footer-col {
-        min-width: 45%; /* Dos columnas por fila */
+        min-width: 45%; 
         margin-bottom: 30px;
     }
-}
 
-@media (max-width: 480px) {
+
+/* ---------------------------------------------------- */
+/* 2. MÓVILES (Max-width: 600px) */
+/* ---------------------------------------------------- */
+@media (max-width: 600px) {
+    
+    /* --- Estilos Generales --- */
+    h1 { font-size: 2rem !important; } /* Reducir todos los títulos principales */
+    .hero-section, .services-cards-section, .unique-value-section, .final-cta-section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    
+    /* --- Header / Hero --- */
+    .header-logo-img {
+        height: 40px; /* Reducir aún más el logo */
+    }
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+    .hero-text p {
+        font-size: 1rem;
+    }
+    .btn-cta-hero {
+        /* El botón CTA ocupa todo el ancho en móvil */
+        width: 100%;
+        text-align: center;
+        padding: 15px 0;
+    }
+    .hero-image {
+        width: 90%; /* La imagen ocupa casi todo el ancho */
+    }
+
+    /* --- Servicios (Tarjetas) --- */
+    .cards-container {
+        /* Cambiar a 1 columna para móviles */
+        grid-template-columns: 1fr; 
+        gap: 15px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    
+    /* --- Contacto (Formulario) --- */
+    .contacto-section {
+        padding: 20px 10px; /* Reducir el padding externo */
+        min-height: auto; 
+    }
+    .contacto-container {
+        padding: 30px 20px; /* Reducir el padding interno */
+    }
+    .contacto-header h1 {
+        font-size: 1.8rem !important; 
+    }
+
+    /* --- Valor Único (Santuario) --- */
+    .unique-value-content h2 {
+        font-size: 1.8rem;
+    }
+    .unique-value-content ul {
+        padding: 0 5px;
+    }
+    
+    /* --- Footer --- */
     .footer-container {
         /* Apilar en una sola columna para móviles */
         flex-direction: column;
@@ -804,53 +907,10 @@
 
     .footer-col {
         min-width: 100%;
-        text-align: center;
-    }
-    
-    .footer-col h3 {
-        margin-top: 10px;
-        margin-bottom: 15px;
+        text-align: center; /* Centrar el texto */
     }
     
     .footer-info {
         /* Centrar el logo y el tagline */
-        display: flex;
-        flex-direction: column;
         align-items: center;
-    }
-}
-/* --- Estilos Responsive: Aplicados a la sección de Contacto --- */
-
-/* Media Query para Tabletas y Móviles grandes (Max-width: 768px) */
-@media (max-width: 768px) {
-    .contacto-section {
-        padding: 20px; /* Reducir el padding externo */
-        min-height: auto; /* Eliminar la altura mínima en móvil */
-    }
-
-    .contacto-container {
-        padding: 30px 20px; /* Reducir el padding interno */
-        max-width: 100%; /* Permitir que ocupe todo el ancho disponible */
-    }
-    
-    .contacto-header h1 {
-        font-size: 2rem; /* Reducir el título */
-        text-align: center;
-    }
-
-    .contacto-header p {
-        font-size: 0.9rem;
-        text-align: center;
-    }
-}
-
-/* Media Query para Móviles Pequeños (Max-width: 480px) */
-@media (max-width: 480px) {
-    .contacto-container {
-        padding: 20px 15px; /* Más reducción de padding */
-    }
-    
-    .contacto-header h1 {
-        font-size: 1.8rem;
-    }
-}
+    }}}
