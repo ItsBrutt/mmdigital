@@ -88,6 +88,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('plan-modal');
     const closeBtn = document.querySelector('.close-button');
     const cards = document.querySelectorAll('.plan-card[data-plan]'); // Selecciona solo las tarjetas con data-plan
+    const modalCtaButton = document.querySelector('.btn-modal-cta');
+    const floatingWrapper = document.getElementById('floating-header-wrapper');
+    const mainHeader = document.getElementById('main-header'); // Header estático
+    const scrollAnchor = document.getElementById('floating-nav-anchor');
 
     const populateList = (elementId, items) => {
         const listElement = document.getElementById(elementId);
@@ -123,8 +127,27 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    // Definir el punto donde el header flotante debe aparecer
+// Debe ser la altura del header principal, más un pequeño margen
+const triggerPoint = mainHeader ? mainHeader.offsetHeight + 10 : 200; 
+// Usamos la altura del mainHeader como punto de activación
 
-    // Cierre del modal
+window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY || document.documentElement.scrollTop;
+
+    if (currentScroll >= triggerPoint) {
+        // Mostrar el flotante
+        if (floatingWrapper) {
+            floatingWrapper.style.transform = 'translateY(0)';
+        }
+    } else {
+        // Ocultar el flotante
+        if (floatingWrapper) {
+            floatingWrapper.style.transform = 'translateY(-100%)';
+        }
+    }
+});
+    // Cierre del modal (X, click fuera, ESC)
     closeBtn.addEventListener('click', () => { modal.style.display = 'none'; });
     window.addEventListener('click', (event) => { 
         if (event.target === modal) { modal.style.display = 'none'; } 
@@ -133,9 +156,31 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.key === 'Escape' && modal.style.display === 'block') { modal.style.display = 'none'; } 
     });
     
-    // 4. Actualizar Año del Copyright (Movido dentro del DOMContentLoaded)
+    // 🌟 LÓGICA DE CIERRE DEL MODAL + SCROLL PARA EL BOTÓN CTA (AQUÍ ESTÁ LA CORRECCIÓN)
+    if (modalCtaButton) {
+        modalCtaButton.addEventListener('click', function(e) {
+            e.preventDefault(); 
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            // 1. CERRAR el modal inmediatamente
+            modal.style.display = 'none';
+
+            // 2. Iniciar el desplazamiento suave (al formulario)
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+
+    // 4. Actualizar Año del Copyright
     const currentYearElement = document.getElementById('current-year');
     if (currentYearElement) {
         currentYearElement.textContent = new Date().getFullYear();
     }
+    
 });
