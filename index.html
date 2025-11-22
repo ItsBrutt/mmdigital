@@ -8,12 +8,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <section class="hero-section">
+    <section class="hero-section" id="inicio">
 <header class="main-header" id="main-header">
     <a href="#inicio" class="header-logo-link">
-        <img src="/img/logo.png" alt="MM Digital & Web Studios Logo" class="header-logo-img">
+        <img src="img/logo.png" alt="MM Digital & Web Studios Logo" class="header-logo-img">
     </a>
-    
+
+    <div class="header-socials-responsive">
+        <a href="#" class="social-icon-responsive"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon-responsive"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon-responsive"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+
     <nav class="main-nav">
         <ul>
             <li><a href="#inicio">Inicio</a></li>
@@ -30,17 +36,22 @@
 
 <div class="floating-header-wrapper" id="floating-header-wrapper">
     <div class="floating-header-content">
-        <a href="index.html" class="floating-logo-link">
+        
+        <a href="#inicio" class="floating-logo-link">
              <img src="img/logo.png" alt="MM Digital Logo" class="floating-logo-img">
         </a>
-
-        <div class="floating-socials">
-            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-
+        
+        <nav class="floating-nav-full"> 
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        
         <a href="#contacto" class="btn-cta-floating">¡Empecemos Ahora!</a>
+        
     </div>
 </div>
 
@@ -121,11 +132,9 @@
     <div class="footer-container">
         <div class="footer-col footer-info">
             <div class="logo-container">
-                <span class="logo-mm">MM</span>
-                <div class="logo-text">
-                    <span class="logo-main">DIGITAL & WEB</span>
-                    <span class="logo-sub">STUDIOS</span>
-                </div>
+                <a href="#inicio" class="header-logo-link">
+                  <img src="/img/logo.png" alt="MM Digital & Web Studios Logo" class="header-logo-img">
+                </a>
             </div>
             <p class="company-tagline">
                El puente que conecta lo tradicional con la innovación digital.
@@ -138,7 +147,7 @@
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#portafolio">Portafolio</a></li>
+                <li><a href="#contacto">Contacto</a></li>
             </ul>
         </div>
 
@@ -147,7 +156,7 @@
             <ul>
                 <li><a href="#" data-plan="PlanIdentidadDigital">Plan Identidad Digital</a></li>
                 <li><a href="#" data-plan="PlanComercioEvolutivo">Plan Comercio Evolutivo</a></li>
-                <li><a href="#" data-plan="PlanFormacionDigital">Plan Formación Digital</a></li>
+                <li><a href="#" data-plan="PlanPresenciaPyme">Plan Presencia Pyme</a></li>
             </ul>
         </div>
 

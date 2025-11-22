@@ -23,64 +23,7 @@
         body {
             /* Establece una fuente de respaldo para el cuerpo */
             font-family: var(--fuente-parrafo); 
-        }
-
-/* ---------------------------------------------------- */
-/* 2.1. Estilos Generales y Responsive para la Sección Hero */
-
-/* Media Query para Tabletas y Móviles grandes (Max-width: 992px) */
-@media (max-width: 992px) {
-    .main-header {
-        /* Permite que el contenido se envuelva si no cabe */
-        flex-wrap: wrap; 
-        justify-content: center; /* Centra el logo si no hay menú */
-        padding-right: 5%
-    }
-
-    /* Ocultar la navegación y el botón CTA del header en pantallas pequeñas */
-    .main-nav,
-    .btn-cta-header {
-        display: none; 
-        
-    }
-
-    .logo-container {
-        /* Centrar el logo cuando el menú desaparece */
-        width: 100%;
-        justify-content: center;
-        margin-bottom: 20px;
-    }
-
-    /* Alinear el texto de la Hero Section al centro */
-    .hero-text {
-        text-align: center;
-        max-width: 100%; /* Ocupa todo el ancho */
-    }
-
-    .hero-text h1 {
-        font-size: 2.5rem; /* Reducir tamaño de título */
-    }
-    
-    .hero-content {
-        flex-direction: column; /* Apilar Imagen y Texto */
-        margin-top: 20px;
-        margin-bottom: 40px;
-    }
-
-    .hero-image {
-        width: 80%; /* Hacer la imagen más ancha en móvil */
-        order: -1; /* Mueve la imagen arriba del texto en móvil */
-        margin-bottom: 30px;
-    }
-
-    .btn-cta-hero {
-        /* Asegurar que el botón CTA sea full width en móvil */
-        width: 100%;
-        text-align: center;
-    }
-}
-
-/* ---------------------------------------------------- */
+        }/* ---------------------------------------------------- */
 /* 2.2. Estilos del Header y Navegación */
 /* ---------------------------------------------------- */
 
@@ -108,17 +51,20 @@
 /* ---------------------------------------------------- */
 
 .header-logo-img {
-    height: 60px; /* Incrementamos la altura del logo (antes 50px) */
+    height: 80px; /* Incrementamos la altura del logo (antes 50px) */
     width: auto;
 }
 
 .floating-logo-img {
-    height: 45px; /* Más pequeño para el header flotante */
+    height: 75px; /* Más pequeño para el header flotante */
     width: auto;
     /* Quitamos el filtro invertido, ya que el fondo es CLARO (blanco semitransparente) */
     filter: none; 
 }
-
+/* Ocultar Redes Sociales Responsive por defecto */
+.header-socials-responsive {
+display: none;
+}
 /* ---------------------------------------------------- */
 /* MODIFICACIÓN EN .main-header (Fondo con el mismo degradado que el Hero) */
 /* ---------------------------------------------------- */
@@ -161,7 +107,7 @@
     backdrop-filter: blur(8px); /* Blur ligeramente reducido para la oscuridad */
     -webkit-backdrop-filter: blur(8px); 
     
-    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.3); /* Sombra más notoria en oscuro */
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.15); /* Sombra más notoria en oscuro */
     
     padding: 8px 5%; 
 }
@@ -177,9 +123,28 @@
 /* Logo Flotante: Asegurar color blanco y tamaño */
 .floating-logo-img {
     height: 45px; 
-    width: auto;
+    filter: none; /* Color normal sobre fondo claro */
+    flex-shrink: 0;
 }
-* Navegación Flotante */
+/* NAV CENTRADA */
+.floating-nav-full {
+display: flex !important;
+justify-content: center;
+flex-grow: 1; /* Ocupa el centro */
+}
+
+.floating-nav-full ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px; 
+}
+
+.floating-nav-full ul li a {
+    color: var(--parrafo); 
+}
+/* * Navegación Flotante */ */
 .floating-nav ul {
     list-style: none;
     margin: 0;
@@ -206,7 +171,7 @@
     gap: 15px;
 }
 .floating-socials .social-icon {
-    color: white; /* Iconos blancos */
+    color: var(--parrafo); /* Iconos blancos */
     font-size: 1.2rem;
     transition: color 0.3s;
 }
@@ -216,7 +181,7 @@
 
 /* Botón CTA Flotante (Se mantiene tu estilo verde original) */
 .btn-cta-floating {
-    background-color: var(--cta-green);
+    background-color: var(--boton-verde);
     color: white;
     text-decoration: none;
     font-family: var(--fuente-parrafo);
@@ -227,32 +192,8 @@
     white-space: nowrap; /* Previene que el texto se rompa */
 }
 .btn-cta-floating:hover {
-    background-color: var(--cta-green-hover);
-}
-
-/* ---------------------------------------------------- */
-/* RESPONSIVE: Ocultar elementos en el Header Flotante en móvil */
-/* ---------------------------------------------------- */
-@media (max-width: 992px) {
-    .floating-nav, .floating-socials {
-        display: none; /* Ocultar nav y redes en tablets/móvil */
-    }
-    .floating-header-content {
-        justify-content: space-between; /* Ajustar justificación */
-    }
-}
-
-@media (max-width: 600px) {
-    .floating-logo-img {
-        height: 35px; /* Reducir aún más el logo en móvil */
-    }
-    .btn-cta-floating {
-        padding: 6px 12px;
-        font-size: 0.8rem;
-    }
-}
-/* ... (El estilo del botón CTA flotante se mantiene igual) ... */
-
+    background-color: var(--boton-hover);
+}/* ---------------------------------------------------- */
 /* Estilos del Logo */
 .logo-container {
     display: flex;
@@ -439,24 +380,10 @@
     color: var(--primario-oscuro); 
     font-size: 1.2rem;
     font-weight: 600;
-}
-
-/* --- Responsive para Servicios --- */
-@media (max-width: 600px) {
-    .cards-container {
-        grid-template-columns: 1fr; 
-        gap: 20px;
-        /* Quitamos el margin-top negativo que se había usado en la versión anterior */
-        margin-top: 0; 
-    }
-}
-
-.plan-card:hover {
+}.plan-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-}
-
-/* ---------------------------------------------------- */
+}/* ---------------------------------------------------- */
 /* MODIFICACIÓN EN .card-icon (Prepara el contenedor para imágenes coloridas) */
 /* ---------------------------------------------------- */
 
@@ -560,105 +487,9 @@
     /* Usar un checkmark SVG más grande y en el color de acento (secundario) */
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="%23BED3FF" d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>') no-repeat left 3px;
     background-size: 24px;
-}
-
-/* ---------------------------------------------------- */
-/* AJUSTES RESPONSIVE (Móvil) */
-/* ---------------------------------------------------- */
-
-@media (max-width: 600px) {
-    .unique-value-section {
-        padding: 60px 5%;
-    }
-    
-    .unique-value-content {
-        padding: 30px 15px;
-    }
-
-    .unique-value-content h2 {
-        font-size: 2rem;
-    }
-    
-    .unique-value-content p {
-        font-size: 1rem;
-    }
-
-    .unique-value-content ul {
-        margin-top: 20px;
-    }
-    
-    .unique-value-content ul li {
-        font-size: 0.95rem;
-        padding-left: 30px;
-    }
-}
-/* ---------------------------------------------------- */
-/* 2.3. Media Queries Responsive */
-/* ---------------------------------------------------- */
-
-@media (max-width: 992px) {
-    .cards-container {
-        /* Cambiar a 2 columnas para tabletas */
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 20px;
-    }
-}
-
-@media (max-width: 600px) {
-    .cards-container {
-        /* Cambiar a 1 columna para móviles */
-        grid-template-columns: 1fr; 
-        gap: 15px;
-        margin-top: -50px;
-    }
-    
-    .services-cards-section {
-        padding-bottom: 40px;
-    }
-    
-    .unique-value-content h2 {
-        font-size: 1.8rem;
-    }
-    
-    .unique-value-content ul {
-        padding: 0 10px;
-    }
-}
-/* ---------------------------------------------------- */
-/* 3.2. Estilos Globales y de Componentes */
-/* ---------------------------------------------------- */
-
-/* --- Contacto (Formulario) - Código Revisado para fondo externo --- */
-
-/* ---------------------------------------------------- */
-/* MODIFICACIÓN EN .contacto-section (Fondo Exterior) */
-/* ---------------------------------------------------- */
-
-.contacto-section {
-    /* **ELIMINA O COMENTA ESTA LÍNEA:** background-color: var(--secundario-oscuro); */
-    
-    /* Degradado diagonal (a la esquina superior derecha) para un look más dinámico */
-    background: linear-gradient(
-        to top right, 
-        var(--primario) 0%,           /* Azul Primario (#2A3E6B) */
-        var(--primario-oscuro) 100%    /* Azul Oscuro (#0E1E40) */
-    );
-    
-    /* El resto de las propiedades se mantienen... */
-    padding: 40px; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
-/* El .contacto-container (el formulario en sí) mantiene el fondo: --primario-oscuro */
-.contacto-container {
-    background-color: var(--primario-oscuro); /* #0E1E40 */
-    /* ... resto de estilos ... */
-}
-
-/* ---------------------------------------------------- */
+}/* ---------------------------------------------------- */
+/* 3.2. Estilos Globales y de Componentes *//* ---------------------------------------------------- */
+/* El .contacto-container (el formulario en sí) mantiene el fondo: --primario-oscuro *//* ---------------------------------------------------- */
 /* 3.3. Estilos de Título y Párrafo */
 /* ---------------------------------------------------- */
 
@@ -682,12 +513,18 @@
 /* ---------------------------------------------------- */
 
 .contacto-section {
-            background-color: var(--secundario-oscuro);
-            padding: 40px; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh; 
+        background: linear-gradient(
+        to top right, 
+        var(--primario) 0%,           /* Azul Primario (#2A3E6B) */
+        var(--primario-oscuro) 100%    /* Azul Oscuro (#0E1E40) */
+        );
+    
+        /* El resto de las propiedades se mantienen... */
+        padding: 40px; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
         }
 
 .contacto-container {
@@ -757,21 +594,6 @@
         .btn-enviar:hover {
             background-color: #4CAE4C;
         }
-
-/* Media Query para Móviles Pequeños (Max-width: 600px) */
-@media (max-width: 600px) {
-    .hero-text h1 {
-        font-size: 2rem; /* Reducir aún más el título */
-    }
-    
-    .hero-section {
-        padding: 15px 5%;
-    }
-    
-    .hero-image {
-        width: 100%; /* Ocupa todo el ancho */
-    }
-}
 /* ---------------------------------------------------- */
 /* 2.1. Estilos del Footer */
 /* ---------------------------------------------------- */
@@ -1011,29 +833,20 @@
     transform: translateY(-2px); /* Efecto 3D sutil */
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
-
-/* ---------------------------------------------------- */
-/* AJUSTE RESPONSIVE para que el footer se apile en móvil */
-/* ---------------------------------------------------- */
-
-@media (max-width: 600px) {
-    .modal-footer {
-        flex-direction: column; /* Apila el valor y el botón */
-        align-items: center; /* Centra los elementos */
+    /* Mostrar y Centrar Redes Sociales (HEADER ESTÁTICO) */
+    .header-socials-responsive {
+        display: flex !important;
+        justify-content: center;
+        gap: 20px;
+        flex-grow: 1; /* Ocupa el centro */
     }
-    
-    #modal-value {
-        margin-bottom: 15px;
-        font-size: 1.4rem;
-        width: 100%;
-        text-align: center;
+    .social-icon-responsive {
+    /* 🌟 CORRECCIÓN CLAVE: Usamos --parrafo para el color del ícono */
+    color: var(--parrafo); 
+    font-size: 1.3rem; /* Ligeramente más grande para más presencia */
+    text-decoration: none;
+    transition: color 0.3s;
     }
-    
-    .btn-modal-cta {
-        width: 100%; /* El botón ocupa todo el ancho en móvil */
-        text-align: center;
-    }
-}
 /* ========================================================================= */
 /* 📱 MEDIA QUERIES RESPONSIVE */
 /* ========================================================================= */
@@ -1043,17 +856,36 @@
 /* 1. TABLETAS Y PANTALLAS GRANDES (Max-width: 992px) */
 /* ---------------------------------------------------- */
 @media (max-width: 992px) {
+    /* Mostrar y Centrar Redes Sociales (HEADER ESTÁTICO) */
+    .header-socials-responsive {
+        display: flex !important;
+        justify-content: center;
+        gap: 20px;
+        flex-grow: 1; /* Ocupa el centro */
+    }
+    .social-icon-responsive {
+    /* 🌟 CORRECCIÓN CLAVE: Usamos --parrafo para el color del ícono */
+    color: var(--parrafo); 
+    font-size: 1.3rem; /* Ligeramente más grande para más presencia */
+    text-decoration: none;
+    transition: color 0.3s;
+    
+}
+
+.social-icon-responsive:hover {
+    color: white; /* Blanco al pasar el ratón */
+}
     /* --- Header / Hero --- */
     .main-nav,
     .btn-cta-header {
         /* Ocultar menú de navegación en línea para dar paso al menú hamburguesa (se asume implementación JS/HTML) */
-        display: none; 
+        display: none !important;
     }
     .main-header {
-        /* Centrar el logo cuando el menú desaparece */
+    /* Centramos el logo restante */
         justify-content: center;
+        padding: 10px 5%; /* Ajustamos el padding para hacerlo más pequeño */
     }
-    
     .hero-content {
         /* Apilar Imagen y Texto */
         flex-direction: column; 
@@ -1091,6 +923,62 @@
         min-width: 45%; 
         margin-bottom: 30px;
     }
+    .logo-container {
+        /* Centrar el logo cuando el menú desaparece */
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    /* Alinear el texto de la Hero Section al centro */
+    .hero-text {
+        text-align: center;
+        max-width: 100%; /* Ocupa todo el ancho */
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem; /* Reducir tamaño de título */
+    }
+    
+    .hero-content {
+        flex-direction: column; /* Apilar Imagen y Texto */
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+
+    .hero-image {
+        width: 80%; /* Hacer la imagen más ancha en móvil */
+        order: -1; /* Mueve la imagen arriba del texto en móvil */
+        margin-bottom: 30px;
+    }
+
+    .btn-cta-hero {
+        /* Asegurar que el botón CTA sea full width en móvil */
+        width: 100%;
+        text-align: center;
+    }
+    .cards-container {
+        /* Cambiar a 2 columnas para tabletas */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px;
+    }
+        .floating-nav, .floating-socials {
+        display: flex !important; /* Asegurar visibilidad en el flotante (en tablet) */
+    }
+    .floating-header-content {
+        justify-content: space-between; 
+        gap: 15px;
+    }
+    .floating-nav-full {
+        display: flex !important; 
+    }
+    
+    .floating-header-content {
+        /* Asegura el layout de 3 columnas Logo | Nav | CTA */
+        justify-content: space-between;
+        gap: 15px; 
+    }
+    
 
 
 /* ---------------------------------------------------- */
@@ -1098,6 +986,104 @@
 /* ---------------------------------------------------- */
 @media (max-width: 600px) {
     
+    /* Mantenemos el Header principal solo con el logo centrado */
+    .main-header {
+        padding: 8px 5%;
+    }
+    /* --- HEADER PRINCIPAL (Estático): Logo (L), Redes (C), CTA (R) --- */
+    
+    /* Ajustes menores para móvil */
+    .header-socials-responsive {
+        gap: 10px;
+        /* El layout de 3 columnas es funcional en 600px, solo se ajusta el espaciado */
+    }
+
+    /* --- HEADER FLOTANTE (Dinámico): Logo (L) | CTA (R) (Simplificado) --- */
+    
+    /* Ocultar Navegación en el flotante para ahorrar espacio en móvil */
+    .floating-nav-full {
+        display: none !important; 
+    }
+    
+    .floating-header-content {
+        justify-content: space-between; 
+        gap: 10px;
+    }
+    
+    .floating-logo-img {
+        height: 35px;
+    }
+    
+    .btn-cta-floating {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    .modal-footer {
+        flex-direction: column; /* Apila el valor y el botón */
+        align-items: center; /* Centra los elementos */
+    }
+    
+    #modal-value {
+        margin-bottom: 15px;
+        font-size: 1.4rem;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .btn-modal-cta {
+        width: 100%; /* El botón ocupa todo el ancho en móvil */
+        text-align: center;
+    }
+    .cards-container {
+        /* Cambiar a 1 columna para móviles */
+        grid-template-columns: 1fr; 
+        gap: 15px;
+        margin-top: -50px;
+    }
+    
+    .services-cards-section {
+        padding-bottom: 40px;
+    }
+    
+    .unique-value-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .unique-value-content ul {
+        margin-top: 20px;
+        padding: 0 10px;
+    }
+    .unique-value-section {
+        padding: 60px 5%;
+    }
+    
+    .unique-value-content {
+        padding: 30px 15px;
+    }
+
+    .unique-value-content p {
+        font-size: 1rem;
+    }
+    
+    .unique-value-content ul li {
+        font-size: 0.95rem;
+        padding-left: 30px;
+    }
+    .floating-nav, .floating-socials {
+    display: none !important; 
+    }
+    .floating-header-content {
+        justify-content: space-between; 
+        gap: 15px;
+    }
+    .floating-logo-img {
+        height: 35px; /* Reducir aún más el logo en móvil */
+    }
+    .btn-cta-floating {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
     /* --- Estilos Generales --- */
     h1 { font-size: 2rem !important; } /* Reducir todos los títulos principales */
     .hero-section, .services-cards-section, .unique-value-section, .final-cta-section {
@@ -1107,7 +1093,7 @@
     
     /* --- Header / Hero --- */
     .header-logo-img {
-        height: 40px; /* Reducir aún más el logo */
+        height: 100px; /* Reducir aún más el logo */
     }
     .hero-text h1 {
         font-size: 2rem;

@@ -92,6 +92,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const floatingWrapper = document.getElementById('floating-header-wrapper');
     const mainHeader = document.getElementById('main-header'); // Header estático
     const scrollAnchor = document.getElementById('floating-nav-anchor');
+    const footerPlanLinks = document.querySelectorAll('.footer-services ul li a[data-plan]');
+    
 
     const populateList = (elementId, items) => {
         const listElement = document.getElementById(elementId);
@@ -127,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-    // Definir el punto donde el header flotante debe aparecer
+// Definir el punto donde el header flotante debe aparecer
 // Debe ser la altura del header principal, más un pequeño margen
 const triggerPoint = mainHeader ? mainHeader.offsetHeight + 10 : 200; 
 // Usamos la altura del mainHeader como punto de activación
@@ -176,7 +178,16 @@ window.addEventListener('scroll', () => {
             }
         });
     }
-
+    // 🌟 Nuevo: Asignar el evento click a los enlaces de planes del Footer
+    footerPlanLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault(); // Evita que salte a '#'
+        const planKey = link.getAttribute('data-plan');
+        if (planKey) {
+            openPlanModal(planKey);
+        }
+    });
+});
     // 4. Actualizar Año del Copyright
     const currentYearElement = document.getElementById('current-year');
     if (currentYearElement) {
