@@ -34,6 +34,7 @@
         /* Permite que el contenido se envuelva si no cabe */
         flex-wrap: wrap; 
         justify-content: center; /* Centra el logo si no hay menú */
+        padding-right: 5%
     }
 
     /* Ocultar la navegación y el botón CTA del header en pantallas pequeñas */
