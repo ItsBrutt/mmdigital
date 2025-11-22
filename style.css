@@ -14,16 +14,16 @@
     --boton-verde: #5cb85c; 
     --boton-hover: #4cae4c;
 }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            /* Establece una fuente de respaldo para el cuerpo */
-            font-family: var(--fuente-parrafo); 
-        }/* ---------------------------------------------------- */
+body {
+    /* Establece una fuente de respaldo para el cuerpo */
+    font-family: var(--fuente-parrafo); 
+}/* ---------------------------------------------------- */
 /* 2.2. Estilos del Header y Navegación */
 /* ---------------------------------------------------- */
 
@@ -520,11 +520,10 @@ flex-grow: 1; /* Ocupa el centro */
         );
     
         /* El resto de las propiedades se mantienen... */
-        padding: 40px; 
-        display: flex;
+        padding: 80px 40px; /* Incrementamos el padding para darle más espacio vertical */        display: flex;
         justify-content: center;
         align-items: center;
-        min-height: 100vh;
+        min-height: auto; /* Ajuste por seguridad */
         }
 
 .contacto-container {
