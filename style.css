@@ -343,6 +343,7 @@ textarea {
     gap: 40px;
 }
 
+
 .plan-card {
     background: var(--white);
     padding: 50px 30px;
@@ -403,6 +404,7 @@ textarea {
     margin-bottom: 30px;
     background: linear-gradient(to right, #fff, var(--accent-light));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
