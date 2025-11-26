@@ -1,17 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // =========================================================================
     // 1. Base de Datos de los Planes y la Firma de Identidad Digital
     // =========================================================================
 
-    // Datos de la Firma de Identidad Digital (Firma que acompaña a todos los planes)
     const identidadDigitalSignature = [
         "Diagnóstico profundo: propósito, objetivos y público meta.",
         "Estrategia de presencia digital y narrativa visual coherente.",
         "Recomendaciones de arquitectura y tecnología sostenible."
     ];
 
-    // Base de Datos de los Planes
     const planDetails = {
         "PlanIdentidadDigital": {
             title: "Plan Identidad Digital",
@@ -59,12 +57,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // =========================================================================
 
     document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
 
             if (targetElement) {
+                // Cerrar menú móvil si está abierto
+                const nav = document.querySelector('.main-nav');
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                }
+
                 targetElement.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
@@ -72,28 +76,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-    
-    // Asegurar que los botones clave apunten a los IDs correctos
-    const heroCta = document.querySelector('.btn-cta-hero');
-    if (heroCta) heroCta.setAttribute('href', '#servicios');
-
-    const headerCta = document.querySelector('.btn-cta-header');
-    if (headerCta) headerCta.setAttribute('href', '#contacto');
-
 
     // =========================================================================
-    // 3. Funcionalidad del Modal de Planes (Al hacer clic en las tarjetas)
+    // 3. Funcionalidad del Modal de Planes
     // =========================================================================
 
     const modal = document.getElementById('plan-modal');
     const closeBtn = document.querySelector('.close-button');
-    const cards = document.querySelectorAll('.plan-card[data-plan]'); // Selecciona solo las tarjetas con data-plan
+    const cards = document.querySelectorAll('.plan-card[data-plan]');
     const modalCtaButton = document.querySelector('.btn-modal-cta');
-    const floatingWrapper = document.getElementById('floating-header-wrapper');
-    const mainHeader = document.getElementById('main-header'); // Header estático
-    const scrollAnchor = document.getElementById('floating-nav-anchor');
     const footerPlanLinks = document.querySelectorAll('.footer-services ul li a[data-plan]');
-    
 
     const populateList = (elementId, items) => {
         const listElement = document.getElementById(elementId);
@@ -104,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
             listElement.appendChild(li);
         });
     };
-    
+
     const openPlanModal = (planKey) => {
         const data = planDetails[planKey];
 
@@ -116,82 +108,114 @@ document.addEventListener('DOMContentLoaded', () => {
             populateList('modal-includes', data.includes);
             populateList('modal-identity-includes', identidadDigitalSignature);
 
-            modal.style.display = 'block'; 
+            modal.style.display = 'block';
+            modal.setAttribute('aria-hidden', 'false');
         }
     };
-    
-    // Asignar el evento click a cada tarjeta
+
     cards.forEach(card => {
         card.addEventListener('click', () => {
-            const planKey = card.getAttribute('data-plan'); 
+            const planKey = card.getAttribute('data-plan');
             if (planKey) {
                 openPlanModal(planKey);
             }
         });
     });
-// Definir el punto donde el header flotante debe aparecer
-// Debe ser la altura del header principal, más un pequeño margen
-const triggerPoint = mainHeader ? mainHeader.offsetHeight + 10 : 200; 
-// Usamos la altura del mainHeader como punto de activación
 
-window.addEventListener('scroll', () => {
-    const currentScroll = window.scrollY || document.documentElement.scrollTop;
+    footerPlanLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const planKey = link.getAttribute('data-plan');
+            if (planKey) {
+                openPlanModal(planKey);
+            }
+        });
+    });
 
-    if (currentScroll >= triggerPoint) {
-        // Mostrar el flotante
-        if (floatingWrapper) {
-            floatingWrapper.style.transform = 'translateY(0)';
-        }
-    } else {
-        // Ocultar el flotante
-        if (floatingWrapper) {
-            floatingWrapper.style.transform = 'translateY(-100%)';
-        }
+    const closeModal = () => {
+        modal.style.display = 'none';
+        modal.setAttribute('aria-hidden', 'true');
+    };
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
     }
-});
-    // Cierre del modal (X, click fuera, ESC)
-    closeBtn.addEventListener('click', () => { modal.style.display = 'none'; });
-    window.addEventListener('click', (event) => { 
-        if (event.target === modal) { modal.style.display = 'none'; } 
+
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) { closeModal(); }
     });
-    document.addEventListener('keydown', (event) => { 
-        if (event.key === 'Escape' && modal.style.display === 'block') { modal.style.display = 'none'; } 
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal.style.display === 'block') { closeModal(); }
     });
-    
-    // 🌟 LÓGICA DE CIERRE DEL MODAL + SCROLL PARA EL BOTÓN CTA (AQUÍ ESTÁ LA CORRECCIÓN)
+
     if (modalCtaButton) {
-        modalCtaButton.addEventListener('click', function(e) {
-            e.preventDefault(); 
-            
+        modalCtaButton.addEventListener('click', function (e) {
+            e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
 
-            // 1. CERRAR el modal inmediatamente
-            modal.style.display = 'none';
+            closeModal();
 
-            // 2. Iniciar el desplazamiento suave (al formulario)
             if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                setTimeout(() => {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 300); // Pequeño delay para permitir que el modal cierre visualmente
             }
         });
     }
-    // 🌟 Nuevo: Asignar el evento click a los enlaces de planes del Footer
-    footerPlanLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault(); // Evita que salte a '#'
-        const planKey = link.getAttribute('data-plan');
-        if (planKey) {
-            openPlanModal(planKey);
-        }
-    });
-});
-    // 4. Actualizar Año del Copyright
+
+    // =========================================================================
+    // 4. Header Flotante
+    // =========================================================================
+
+    const floatingWrapper = document.getElementById('floating-header-wrapper');
+    const mainHeader = document.getElementById('main-header');
+
+    // Usar IntersectionObserver para mejor rendimiento
+    if (mainHeader && floatingWrapper) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    floatingWrapper.style.transform = 'translateY(0)';
+                } else {
+                    floatingWrapper.style.transform = 'translateY(-100%)';
+                }
+            });
+        }, { threshold: 0 });
+
+        observer.observe(mainHeader);
+    }
+
+    // =========================================================================
+    // 5. Menú Móvil
+    // =========================================================================
+
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mainNav = document.querySelector('.main-nav');
+
+    if (mobileMenuBtn && mainNav) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mainNav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
+
+    // =========================================================================
+    // 6. Actualizar Año del Copyright
+    // =========================================================================
     const currentYearElement = document.getElementById('current-year');
     if (currentYearElement) {
         currentYearElement.textContent = new Date().getFullYear();
     }
-    
 });
