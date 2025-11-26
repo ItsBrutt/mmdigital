@@ -750,6 +750,55 @@ textarea {
     .footer-container {
         grid-template-columns: 1fr 1fr;
     }
+
+    .floating-nav-full {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        right: 0;
+        z-index: 60;
+    }
+
+    .floating-nav-full ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .floating-nav-full a {
+        color: var(--text-main);
+        font-weight: 500;
+        font-size: 1rem;
+        position: relative;
+    }
+
+    .floating-nav-full a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: var(--success);
+        transition: width 0.3s ease;
+    }
+
+    .floating-nav-full a:hover::after {
+        width: 100%;
+    }
+
+    .floating-nav-full a:hover {
+        color: var(--white);
+    }
+
+    .floating-nav-full:hover {
+        cursor: pointer;
+    }
+
 }
 
 @media (max-width: 768px) {
@@ -818,4 +867,57 @@ textarea {
         gap: 20px;
         text-align: center;
     }
+
+    .floating-nav-full {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        right: 0;
+        z-index: 60;
+    }
+
+    .floating-nav-full ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .floating-nav-full a {
+        color: var(--text-main);
+        font-weight: 500;
+        font-size: 1rem;
+        position: relative;
+    }
+
+    .floating-nav-full a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: var(--success);
+        transition: width 0.3s ease;
+    }
+
+    .floating-nav-full a:hover::after {
+        width: 100%;
+    }
+
+    .floating-nav-full a:hover {
+        color: var(--white);
+    }
+
+    .floating-nav-full:hover {
+        cursor: pointer;
+    }
+
+    .btn-cta-floating {
+        display: none;
+    }
+
 }
