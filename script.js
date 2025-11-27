@@ -192,28 +192,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // =========================================================================
     // 5. Menú Móvil
-    // =========================================================================
-
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const mainNav = document.querySelector('.main-nav');
-
-    if (mobileMenuBtn && mainNav) {
-        mobileMenuBtn.addEventListener('click', () => {
-            mainNav.classList.toggle('active');
-            const icon = mobileMenuBtn.querySelector('i');
-            if (mainNav.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-    }
-
-    // =========================================================================
-    // 6. Actualizar Año del Copyright
-    // =========================================================================
     const currentYearElement = document.getElementById('current-year');
     if (currentYearElement) {
         currentYearElement.textContent = new Date().getFullYear();

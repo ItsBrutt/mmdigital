@@ -17,9 +17,19 @@
     /* Texto principal sobre oscuro */
     --text-dark: #1A202C;
     /* Texto sobre fondos claros */
+    --text-muted: #666666;
+    /* Texto secundario */
+    --text-subtle: #8899A6;
+    /* Texto terciario/footer */
     --bg-light: #F7F9FC;
     /* Fondo secciones claras */
+    --bg-subtle: #F8FAFC;
+    /* Fondo inputs/cards */
+    --bg-highlight: #F0F4FF;
+    /* Fondo destacados */
     --white: #FFFFFF;
+    --border-light: #E2E8F0;
+    /* Bordes suaves */
 
     /* --- Tipografía --- */
     --font-heading: 'Poppins', sans-serif;
@@ -44,6 +54,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: all 0.3s ease;
 }
 
 html {
@@ -56,6 +67,7 @@ body {
     background-color: var(--bg-light);
     line-height: 1.6;
     overflow-x: hidden;
+    min-height: 100dvh;
 }
 
 h1,
@@ -66,6 +78,7 @@ h5,
 h6 {
     font-family: var(--font-heading);
     line-height: 1.2;
+    text-wrap: balance;
 }
 
 a {
@@ -100,6 +113,10 @@ textarea {
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0;
+}
+
+.mt-2rem {
+    margin-top: 2rem;
 }
 
 /* --- Header Principal --- */
@@ -311,6 +328,11 @@ textarea {
     box-shadow: 0 15px 35px rgba(0, 200, 150, 0.4);
 }
 
+.btn-cta-small {
+    font-size: 0.9rem;
+    padding: 0.8rem 1.5rem;
+}
+
 .hero-image {
     flex: 1;
     display: flex;
@@ -319,10 +341,10 @@ textarea {
 }
 
 .hero-image img {
-    max-width: 100%;
     filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
     /* Animación flotante sutil */
     animation: float 6s ease-in-out infinite;
+    max-height: 650px;
 }
 
 /* --- Servicios (Cards) --- */
@@ -373,7 +395,7 @@ textarea {
 
 .plan-card:hover .card-icon {
     transform: scale(1.1) rotate(5deg);
-    background: #E8F0FE;
+    background: var(--bg-highlight);
 }
 
 .plan-card h3 {
@@ -402,7 +424,7 @@ textarea {
 .unique-value-content h2 {
     font-size: 3rem;
     margin-bottom: 30px;
-    background: linear-gradient(to right, #fff, var(--accent-light));
+    background: linear-gradient(to right, var(--white), var(--accent-light));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -469,7 +491,7 @@ textarea {
 }
 
 .contacto-header p {
-    color: #666;
+    color: var(--text-muted);
 }
 
 .contacto-form label {
@@ -482,10 +504,10 @@ textarea {
     width: 100%;
     padding: 18px 20px;
     margin-bottom: 20px;
-    border: 2px solid #E2E8F0;
+    border: 2px solid var(--border-light);
     border-radius: 10px;
     font-size: 1rem;
-    background-color: #F8FAFC;
+    background-color: var(--bg-subtle);
     transition: all 0.3s ease;
     color: var(--text-dark);
 }
@@ -555,7 +577,7 @@ textarea {
     padding-top: 30px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.9rem;
-    color: #8899A6;
+    color: var(--text-subtle);
 }
 
 /* --- Modal --- */
@@ -607,11 +629,11 @@ textarea {
 
 .modal-tagline {
     font-size: 1.1rem;
-    color: #666;
+    color: var(--text-muted);
     font-style: italic;
     margin-bottom: 30px;
     padding-bottom: 20px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-light);
 }
 
 .modal-section h3 {
@@ -637,7 +659,7 @@ textarea {
 }
 
 .identity-section {
-    background-color: #F0F4FF;
+    background-color: var(--bg-highlight);
     padding: 25px;
     border-radius: 10px;
     margin-top: 30px;
@@ -657,7 +679,7 @@ textarea {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid #eee;
+    border-top: 1px solid var(--border-light);
     padding-top: 20px;
 }
 
